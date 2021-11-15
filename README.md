@@ -1,6 +1,6 @@
 # workstation
 
-some ansible scripts to setup a PUSH IT Workstation after installing a minimal Debian Setup.
+some ansible scripts to setup a PUSH IT Workstation after installing a minimal Debian 11 Setup.
 
 Planned:
 
