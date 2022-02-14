@@ -16,13 +16,28 @@
         dest: /boot/grub/themes/pushit
         remote_src: no
         directory_mode: yes
-    - name: modify grub settings in /etc/default/grub
+    - name: modify grub settings in /etc/default/grub for timeout
       ansible.builtin.lineinfile:
         path: /etc/default/grub
         regexp: '^GRUB_TIMEOUT='
         line: GRUB_TIMEOUT=60
-      register: grubupdate
+      # register: grubupdate
+
+    - name: modify grub settings in /etc/default/grub for style menu
+      ansible.builtin.lineinfile:
+        path: /etc/default/grub
+        line: "GRUB_TIMEOUT_STYLE=menu"
+        state: present
+        backup: yes
+
+    - name: modify grub settings in /etc/default/grub for theme
+      ansible.builtin.lineinfile:
+        path: /etc/default/grub
+        line: "GRUB_THEME=\"/boot/grub/themes/pushit/theme.txt\""
+        state: present
+        backup: yes
+
     - name: update-grub
       shell: update-grub2
-      when: grubupdate
+      # when: grubupdate
 
