@@ -1,3 +1,4 @@
 ---
 - import_playbook: playbooks/pushit/pushit.yml
+- import_playbook: playbooks/grubtheme/grubtheme.yml
 - hosts: localhost

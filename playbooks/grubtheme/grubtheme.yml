@@ -1,0 +1,21 @@
+---
+
+- name: Create grub themes directory
+  file:
+    path: /boot/grub/themes
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+    recurse: yes
+
+- name: Copy the Theme files to /boot/grub/themes
+  hosts: localhost
+  tasks:
+    - name: copy the PUSH IT file from template to remote
+      template:
+        src: ./pushit
+        dest: /boot/grub/themes
+        remote_src: no
+        directory_mode: yes
+
