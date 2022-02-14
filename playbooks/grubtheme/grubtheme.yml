@@ -11,7 +11,7 @@
         mode: 0755
         recurse: yes
     - name: copy the PUSH IT file from template to remote
-      template:
+      ansible.builtin.copy:
         src: ./pushit/
         dest: /boot/grub/themes
         remote_src: no
