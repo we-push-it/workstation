@@ -16,3 +16,10 @@ Planned:
 - ...
 
 ... we will see ;)
+
+# Start installation
+
+Login as root via ssh or local and run:
+
+    curl https://raw.githubusercontent.com/we-push-it/workstation/master/install.sh | bash
+
