@@ -17,7 +17,11 @@ Planned:
 
 ... we will see ;)
 
-# Start installation
+# Installation
+
+Just clone the repo and run the ansible scripts or do with the installer.
+
+# Installation with installer
 
 Login as root via ssh or local and run:
 
