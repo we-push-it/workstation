@@ -4,7 +4,7 @@
   tasks:
     - name: Create grub themes directory
       file:
-        path: /boot/grub/themes
+        path: /boot/grub/themes/pushit
         state: directory
         owner: root
         group: root
@@ -13,7 +13,7 @@
     - name: copy the PUSH IT file from template to remote
       ansible.builtin.copy:
         src: ./pushit/
-        dest: /boot/grub/themes
+        dest: /boot/grub/themes/pushit
         remote_src: no
         directory_mode: yes
 
