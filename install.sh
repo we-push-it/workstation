@@ -16,6 +16,10 @@ ansible --version
 
 git clone https://github.com/we-push-it/workstation.git
 
+cd workstation
+git pull --rebase
+cd ..
+
 echo
 echo "done."
 echo
