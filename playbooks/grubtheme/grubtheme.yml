@@ -10,10 +10,19 @@
         group: root
         mode: 0755
         recurse: yes
-    - name: copy the PUSH IT file from template to remote
+    - name: copy the PUSH IT grub theme to remote
       ansible.builtin.copy:
         src: ./pushit/
         dest: /boot/grub/themes/pushit
         remote_src: no
         directory_mode: yes
+    - name: modify grub settings in /etc/default/grub
+      ansible.builtin.lineinfile:
+        path: /etc/default/grub
+        regexp: '^GRUB_TIMEOUT='
+        line: GRUB_TIMEOUT=60
+      register: grubupdate
+    - name: update-grub
+      shell: update-grub2
+      when: grubupdate
 
