@@ -16,3 +16,6 @@ ansible --version
 
 git clone https://github.com/we-push-it/workstation.git
 
+echo
+echo "done."
+echo
