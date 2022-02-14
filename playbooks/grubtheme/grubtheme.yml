@@ -12,7 +12,7 @@
         recurse: yes
     - name: copy the PUSH IT file from template to remote
       template:
-        src: ./pushit
+        src: ./pushit/
         dest: /boot/grub/themes
         remote_src: no
         directory_mode: yes
