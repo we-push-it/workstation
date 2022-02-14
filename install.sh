@@ -28,6 +28,15 @@ cd workstation
 git pull --rebase
 cd ..
 
+ansible -m ping localhost
+
+exit_status=$?
+
+if [ $exit_status -ne 0 ]; then
+    echo "Ansible cannot connect to localhost"
+    exit 1
+fi
+
 echo
 echo "done."
 echo
