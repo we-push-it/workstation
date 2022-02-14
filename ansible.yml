@@ -1,0 +1,3 @@
+---
+- import_playbook: playbooks/pushit/pushit.yml
+- hosts: localhost

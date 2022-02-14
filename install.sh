@@ -28,7 +28,7 @@ cd workstation
 git pull --rebase
 cd ..
 
-ansible -m ping localhost
+ansible -m ping localhost > /dev/null
 
 exit_status=$?
 
