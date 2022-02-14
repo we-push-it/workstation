@@ -14,7 +14,15 @@ pip3 install ansible
 
 ansible --version
 
-git clone https://github.com/we-push-it/workstation.git
+
+if [ -d "./workstation" ] 
+then
+    echo "Workstation path already exists." 
+else
+    echo "Workstation path not existing. Start cloning ..." 
+    git clone https://github.com/we-push-it/workstation.git
+fi
+
 
 cd workstation
 git pull --rebase
