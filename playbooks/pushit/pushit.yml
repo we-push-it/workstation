@@ -1,6 +1,6 @@
 ---
 - name: Copy the PUSH IT File
-  hosts: all
+  hosts: localhost
   tasks:
     - name: copy the PUSH IT file from template to remote
       template:
