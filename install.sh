@@ -14,4 +14,5 @@ pip3 install ansible
 
 ansible --version
 
-git clone git@github.com:we-push-it/workstation.git
+git clone https://github.com/we-push-it/workstation.git
+
