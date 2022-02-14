@@ -38,7 +38,7 @@ if [ $exit_status -ne 0 ]; then
 fi
 
 cd workstation
-ansible-playbook ansible.yml
+ANSIBLE_NOCOWS=1 ansible-playbook ansible.yml
 cd ..
 
 echo
