@@ -19,12 +19,12 @@
 
     - name: Add bullseye repository into sources list for non-free
       ansible.builtin.apt_repository:
-        repo: deb http://deb.debian.org/debian main contrib non-free
+        repo: deb http://deb.debian.org/debian bullseye main contrib non-free
         state: present
       when: (checknvidia.rc == 0 and ansible_facts['distribution'] == "Debian" and ansible_facts['lsb']['major_release'] == "11")
     - name: Add bullseye sources repository into sources list for non-free
       ansible.builtin.apt_repository:
-        repo: deb-src http://deb.debian.org/debian main contrib non-free
+        repo: deb-src http://deb.debian.org/debian bullseye main contrib non-free
         state: present
       when: (checknvidia.rc == 0 and ansible_facts['distribution'] == "Debian" and ansible_facts['lsb']['major_release'] == "11")
 
