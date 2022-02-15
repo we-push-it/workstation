@@ -31,9 +31,9 @@
     - name: Install NVIDIA driver
       apt:
         pkg: 
-          #- bullseye-backports
+          - bullseye-backports
           - nvidia-driver 
           - firmware-misc-nonfree
-        state: present
+        state: latest
         update_cache: yes
       when: checknvidia.rc == 0
