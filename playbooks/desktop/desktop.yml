@@ -23,5 +23,5 @@
     - name: get user with id 1000
       shell: >
         getent passwd 1000 | 
-        awk -F: '\{ print $1 \}'
+        awk -F: '{ print $1 }'
 
