@@ -50,3 +50,14 @@
         default_release: bullseye-backports
         update_cache: yes
       when: checknvidia.rc == 0
+
+    - name: Install Linux Headers
+      apt:
+        pkg: 
+          - linux-headers-amd64 
+        state: latest
+        update_cache: yes
+      when: checknvidia.rc == 0
+
+
+
