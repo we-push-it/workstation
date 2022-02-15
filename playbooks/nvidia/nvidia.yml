@@ -1,0 +1,12 @@
+---
+- name: Check if dedicated NVIDIA graficcard is built in and install drivers
+  hosts: localhost
+  tasks:
+    - name: check lspci for NVIDIA VGA
+      shell: lspci | grep VGA | grep NVIDIA
+      register: checknvidia
+    - name: print debug message if NVIDIA is found
+      ansible.builtin.debug:
+        msg:
+          - "NVIDIA Grafic Card found."
+      when: checknvidia.rc = 0
