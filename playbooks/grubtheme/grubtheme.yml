@@ -24,7 +24,7 @@
         path: /etc/default/grub
         regexp: '^GRUB_TIMEOUT='
         line: GRUB_TIMEOUT=60
-      # register: grubupdate
+      register: grubupdate1
 
     - name: modify grub settings in /etc/default/grub for style menu
       ansible.builtin.lineinfile:
@@ -32,6 +32,7 @@
         line: "GRUB_TIMEOUT_STYLE=menu"
         state: present
         backup: yes
+      register: grubupdate2
 
     - name: modify grub settings in /etc/default/grub for theme
       ansible.builtin.lineinfile:
@@ -39,8 +40,9 @@
         line: "GRUB_THEME=\"/boot/grub/themes/pushit/theme.txt\""
         state: present
         backup: yes
+      register: grubupdate3
 
     - name: update-grub
       shell: update-grub2
-      # when: grubupdate
+      when: (grubupdate1 is changed or grubupdate2 is changed or grubupdate3 is changed) 
 
