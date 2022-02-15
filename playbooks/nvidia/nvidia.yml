@@ -35,5 +35,6 @@
           - nvidia-driver 
           - firmware-misc-nonfree
         state: latest
+        default_release: bullseye-backports
         update_cache: yes
       when: checknvidia.rc == 0
