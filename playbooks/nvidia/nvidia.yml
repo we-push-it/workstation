@@ -10,39 +10,44 @@
       register: checknvidia
       failed_when: checknvidia.rc > 1
       changed_when: false
-    - name: print debug message if NVIDIA is found
-      ansible.builtin.debug:
-        msg:
-          - "NVIDIA Grafic Card found."
-      when: checknvidia.rc == 0
-    - name: print debug message if NVIDIA is not found
-      ansible.builtin.debug:
-        msg:
-          - "NVIDIA Grafic Card NOT found."
-      when: checknvidia.rc == 1
+      
+    # - name: print debug message if NVIDIA is found
+    #   ansible.builtin.debug:
+    #     msg:
+    #       - "NVIDIA Grafic Card found."
+    #   when: checknvidia.rc == 0
+
+    # - name: print debug message if NVIDIA is not found
+    #   ansible.builtin.debug:
+    #     msg:
+    #       - "NVIDIA Grafic Card NOT found."
+    #   when: checknvidia.rc == 1
 
     - name: Add bullseye repository into sources list for non-free
       ansible.builtin.apt_repository:
         repo: deb http://deb.debian.org/debian bullseye main contrib non-free
         state: present
-      when: (checknvidia.rc == 0 and ansible_facts['distribution'] == "Debian" and ansible_facts['lsb']['major_release'] == "11")
+      when: (ansible_facts['distribution'] == "Debian" and ansible_facts['lsb']['major_release'] == "11")
+
     - name: Add bullseye sources repository into sources list for non-free
       ansible.builtin.apt_repository:
         repo: deb-src http://deb.debian.org/debian bullseye main contrib non-free
         state: present
-      when: (checknvidia.rc == 0 and ansible_facts['distribution'] == "Debian" and ansible_facts['lsb']['major_release'] == "11")
+      when: (ansible_facts['distribution'] == "Debian" and ansible_facts['lsb']['major_release'] == "11")
 
 
     - name: Add bullseye-backports repository into sources list
       ansible.builtin.apt_repository:
         repo: deb http://deb.debian.org/debian bullseye-backports main contrib non-free
         state: present
-      when: (checknvidia.rc == 0 and ansible_facts['distribution'] == "Debian" and ansible_facts['lsb']['major_release'] == "11")
+      when: (ansible_facts['distribution'] == "Debian" and ansible_facts['lsb']['major_release'] == "11")
+
     - name: Add bullseye-backports sources repository into sources list
       ansible.builtin.apt_repository:
         repo: deb-src http://deb.debian.org/debian bullseye-backports main contrib non-free
         state: present
-      when: (checknvidia.rc == 0 and ansible_facts['distribution'] == "Debian" and ansible_facts['lsb']['major_release'] == "11")
+      when: (ansible_facts['distribution'] == "Debian" and ansible_facts['lsb']['major_release'] == "11")
+
     - name: Update apt-get repo and cache
       apt: update_cache=yes force_apt_get=yes cache_valid_time=3600
 
@@ -63,6 +68,7 @@
 
     - name: m-a prepare 1
       shell: m-a prepare
+      when: checknvidia.rc == 0
 
     - name: Install NVIDIA driver
       apt:
@@ -78,6 +84,7 @@
 
     - name: m-a prepare 2
       shell: m-a prepare
+      when: checknvidia.rc == 0
 
 
     - name: Install Xorg
@@ -86,7 +93,6 @@
           - xorg 
         state: latest
         update_cache: yes
-      when: checknvidia.rc == 0
 
     - name: Install CUDA Toolkit
       apt:
@@ -99,6 +105,7 @@
 
     - name: m-a prepare 3
       shell: m-a prepare
+      when: checknvidia.rc == 0
 
 
     - name: update-initramfs
