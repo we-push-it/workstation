@@ -45,21 +45,45 @@
       when: (checknvidia.rc == 0 and ansible_facts['distribution'] == "Debian" and ansible_facts['lsb']['major_release'] == "11")
     - name: Update apt-get repo and cache
       apt: update_cache=yes force_apt_get=yes cache_valid_time=3600
+
+    - name: Install module assistant
+      apt:
+        pkg: 
+          - module-assistant
+        state: latest
+        update_cache: yes
+      when: checknvidia.rc == 0
+
+    - name: Install Linux Headers
+      apt:
+        pkg: 
+          - linux-headers-amd64 
+        state: latest
+        update_cache: yes
+
+    - name: m-a prepare 1
+      shell: m-a prepare
+
     - name: Install NVIDIA driver
       apt:
         pkg: 
           - nvidia-driver 
           - firmware-misc-nonfree
+          - nvidia-xconfig
         state: latest
         default_release: bullseye-backports
         update_cache: yes
       when: checknvidia.rc == 0
       register: drivers_installed
 
-    - name: Install Linux Headers
+    - name: m-a prepare 2
+      shell: m-a prepare
+
+
+    - name: Install Xorg
       apt:
         pkg: 
-          - linux-headers-amd64 
+          - xorg 
         state: latest
         update_cache: yes
       when: checknvidia.rc == 0
@@ -72,6 +96,14 @@
         state: latest
         update_cache: yes
       when: checknvidia.rc == 0
+
+    - name: m-a prepare 3
+      shell: m-a prepare
+
+
+    - name: update-initramfs
+      shell: update-initramfs -u
+      when: (drivers_installed is changed and checknvidia.rc == 0)
 
     - name: Reboot immediately if there was a change.
       shell: "sleep 5 && reboot"
@@ -87,4 +119,6 @@
         timeout: 900
       when: (drivers_installed is changed and checknvidia.rc == 0)
 
- 
+    - name: update-initramfs
+      shell: nvidia-xconfig
+      when: (drivers_installed is changed and checknvidia.rc == 0)
