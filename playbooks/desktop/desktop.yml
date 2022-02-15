@@ -20,7 +20,7 @@
           - lemonbar
         autoremove: yes
         purge: yes
-    - name: get user with id 1000
+    - name: get user with id 1000 (primary user for debian)
       shell: >
         getent passwd 1000 | 
         awk -F: '{ print $1 }'
@@ -33,4 +33,56 @@
         content: |
           exec bspwm
         
+    - name: Changing perm of .xinitrc, adding "+x"
+      file: dest="/home/{{ username.stdout }}/.xinitrc" mode=a+x
 
+    - name: Create config dirs for bspwm
+      file:
+        path: /home/{{ username.stdout }}/.config/bspwm
+        state: directory
+        owner: {{ username.stdout }}
+        group: {{ username.stdout }}
+        mode: 0755
+        recurse: yes
+
+    - name: Create config dirs for sxhkd
+      file:
+        path: /home/{{ username.stdout }}/.config/sxhkd
+        state: directory
+        owner: {{ username.stdout }}
+        group: {{ username.stdout }}
+        mode: 0755
+        recurse: yes
+
+    - name: Create config dirs for polydar
+      file:
+        path: /home/{{ username.stdout }}/.config/polybar
+        state: directory
+        owner: {{ username.stdout }}
+        group: {{ username.stdout }}
+        mode: 0755
+        recurse: yes
+
+
+    - name: Copy default config bspwmrc
+      ansible.builtin.copy:
+        src: /usr/share/doc/bspwm/examples/bspwmrc
+        dest: /home/{{ username.stdout }}/.config/bspwm/bspwmrc
+        owner: {{ username.stdout }}
+        group: {{ username.stdout }}
+        mode: 'a+x'
+
+    - name: Copy default config sxhkd
+      ansible.builtin.copy:
+        src: /usr/share/doc/bspwm/examples/sxhkd
+        dest: /home/{{ username.stdout }}/.config/sxhkd/sxhkdrc
+        owner: {{ username.stdout }}
+        group: {{ username.stdout }}
+        mode: 'a+x'
+
+    - name: Copy default config polybar
+      ansible.builtin.copy:
+        src: /usr/share/doc/polybar/config
+        dest: /home/{{ username.stdout }}/.config/polybar/config
+        owner: {{ username.stdout }}
+        group: {{ username.stdout }}
