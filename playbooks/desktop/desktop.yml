@@ -74,7 +74,7 @@
 
     - name: Copy default config sxhkd
       ansible.builtin.copy:
-        src: /usr/share/doc/bspwm/examples/sxhkd
+        src: /usr/share/doc/bspwm/examples/sxhkdrc
         dest: /home/{{ username.stdout }}/.config/sxhkd/sxhkdrc
         owner: '{{ username.stdout }}'
         group: '{{ username.stdout }}'
