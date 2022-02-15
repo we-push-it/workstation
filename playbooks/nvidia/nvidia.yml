@@ -1,4 +1,7 @@
 ---
+
+# install nvidia for debian: https://wiki.debian.org/NvidiaGraphicsDrivers#Debian_11_.22Bullseye.22
+
 - name: Check if dedicated NVIDIA graficcard is built in and install drivers
   hosts: localhost
   tasks:
@@ -59,5 +62,15 @@
         update_cache: yes
       when: checknvidia.rc == 0
 
+    - name: Install CUDA Toolkit
+      apt:
+        pkg: 
+          - nvidia-cuda-dev
+          - nvidia-cuda-toolkit
+        state: latest
+        update_cache: yes
+      when: checknvidia.rc == 0
 
 
+
+ 
