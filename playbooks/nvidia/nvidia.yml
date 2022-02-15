@@ -16,3 +16,17 @@
         msg:
           - "NVIDIA Grafic Card NOT found."
       when: checknvidia.rc == 1
+    - name: Add bullseye-backports repository into sources list
+      ansible.builtin.apt_repository:
+        repo: deb http://deb.debian.org/debian bullseye-backports main contrib non-free
+        state: present
+      when: checknvidia.rc == 0 and ansible_facts['lsb']['id'] == "Debian" and ansible_facts['lsb']['major_release'] == 11
+    - name: Install NVIDIA driver
+      apt:
+        pkg: 
+          - bullseye-backports
+          - nvidia-driver 
+          - firmware-misc-nonfree
+        state: present
+        update_cache: yes
+      when: checknvidia.rc == 0
