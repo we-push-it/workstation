@@ -25,4 +25,12 @@
         getent passwd 1000 | 
         awk -F: '{ print $1 }'
       changed_when: false
+      register: username 
+
+    - name: Creating .xinitrc
+      copy:
+        dest: "/home/{{ username.stdout }}/"
+      content: |
+        exec bspwm
+        
 
