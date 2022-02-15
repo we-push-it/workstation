@@ -24,4 +24,5 @@
       shell: >
         getent passwd 1000 | 
         awk -F: '{ print $1 }'
+      changed_when: false
 

@@ -9,6 +9,7 @@
       shell: lspci | grep VGA | grep NVIDIA
       register: checknvidia
       failed_when: checknvidia.rc > 1
+      changed_when: false
     - name: print debug message if NVIDIA is found
       ansible.builtin.debug:
         msg:
