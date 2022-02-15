@@ -30,7 +30,7 @@
     - name: Creating .xinitrc
       copy:
         dest: "/home/{{ username.stdout }}/"
-      content: |
-        exec bspwm
+        content: |
+          exec bspwm
         
 
