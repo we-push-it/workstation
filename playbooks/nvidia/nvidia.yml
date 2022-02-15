@@ -53,6 +53,7 @@
         default_release: bullseye-backports
         update_cache: yes
       when: checknvidia.rc == 0
+      register: drivers_installed
 
     - name: Install Linux Headers
       apt:
@@ -71,6 +72,18 @@
         update_cache: yes
       when: checknvidia.rc == 0
 
-
+    # - name: Reboot immediately if there was a change.
+    #   shell: "sleep 5 && reboot"
+    #   async: 1
+    #   poll: 0
+    #   when: (drivers_installed is changed and checknvidia.rc == 0)
+    # 
+    # - name: Wait for the reboot to complete if there was a change.
+    #   wait_for_connection:
+    #     connect_timeout: 20
+    #     sleep: 5
+    #     delay: 5
+    #     timeout: 900
+    #   when: (drivers_installed is changed and checknvidia.rc == 0)
 
  
