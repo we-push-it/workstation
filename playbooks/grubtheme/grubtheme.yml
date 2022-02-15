@@ -1,4 +1,7 @@
 ---
+
+# https://www.gnome-look.org/p/1529571
+
 - name: Copy the Theme files to /boot/grub/themes
   hosts: localhost
   tasks:

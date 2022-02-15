@@ -1,0 +1,27 @@
+---
+
+# install the desktop environemnt with XORG, Windowmanager, Polybar etc
+
+- name: Check if dedicated NVIDIA graficcard is built in and install drivers
+  hosts: localhost
+  tasks:
+    - name: Install xorg and other tools
+      apt:
+        pkg: 
+          - xorg
+          - bspwm
+          - polybar
+          - dmenu
+        state: latest
+        update_cache: yes
+    - name: Autoremove lemonbar
+      apt:
+        pkg:
+          - lemonbar
+        autoremove: yes
+        purge: yes
+    - name: get user with id 1000
+      shell: >
+        getent passwd 1000 | 
+        awk -F: '\{ print $1 \}'
+
