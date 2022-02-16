@@ -103,6 +103,15 @@
         update_cache: yes
       when: checknvidia.rc == 0
 
+    - name: Install nvtop
+      apt:
+        pkg: 
+          - nvtop
+        state: latest
+        update_cache: yes
+      when: checknvidia.rc == 0
+
+
     - name: m-a prepare 3
       shell: m-a prepare
       when: checknvidia.rc == 0
