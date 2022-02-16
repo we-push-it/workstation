@@ -64,25 +64,38 @@
         recurse: yes
 
 
-    - name: Copy default config bspwmrc
+
+
+    - name: Copy config bspwmrc
       ansible.builtin.copy:
-        src: /usr/share/doc/bspwm/examples/bspwmrc
+        src: ./configs/bspwmrc
         dest: /home/{{ username.stdout }}/.config/bspwm/bspwmrc
         owner: '{{ username.stdout }}'
         group: '{{ username.stdout }}'
         mode: 'a+x'
+        remote_src: no
 
-    - name: Copy default config sxhkd
+    - name: Copy config sxhkd
       ansible.builtin.copy:
-        src: /usr/share/doc/bspwm/examples/sxhkdrc
+        src: ./configs/sxhkdrc
         dest: /home/{{ username.stdout }}/.config/sxhkd/sxhkdrc
         owner: '{{ username.stdout }}'
         group: '{{ username.stdout }}'
         mode: 'a+x'
+        remote_src: no
 
-    - name: Copy default config polybar
+    - name: Copy config polybar
       ansible.builtin.copy:
-        src: /usr/share/doc/polybar/config
+        src: ./configs/polybar
         dest: /home/{{ username.stdout }}/.config/polybar/config
         owner: '{{ username.stdout }}'
         group: '{{ username.stdout }}'
+        remote_src: no
+
+    - name: Copy polybar launcher
+      ansible.builtin.copy:
+        src: ./scripts/polybar_launcher.sh
+        dest: /home/{{ username.stdout }}/.config/polybar/launch.sh
+        owner: '{{ username.stdout }}'
+        group: '{{ username.stdout }}'
+        remote_src: no

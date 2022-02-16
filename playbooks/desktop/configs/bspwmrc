@@ -1,8 +1,8 @@
 #!/bin/sh
 
 pgrep -x sxhkd > /dev/null || sxhkd &
-/home/d/.config/polybar/launch.sh
-#$HOME/.config/polybar/launch.sh
+#/home/d/.config/polybar/launch.sh
+$HOME/.config/polybar/launch.sh
 
 bspc monitor -d I II III IV V VI VII VIII IX X
 
