@@ -90,6 +90,7 @@
         dest: /home/{{ username.stdout }}/.config/polybar/config
         owner: '{{ username.stdout }}'
         group: '{{ username.stdout }}'
+        mode: 'a+x'
         remote_src: no
 
     - name: Copy polybar launcher
@@ -98,4 +99,5 @@
         dest: /home/{{ username.stdout }}/.config/polybar/launch.sh
         owner: '{{ username.stdout }}'
         group: '{{ username.stdout }}'
+        mode: 'a+x'
         remote_src: no
