@@ -14,5 +14,6 @@
           - cowsay
           - figlet
           - rxvt-unicode
+          - beep
         state: latest
         update_cache: yes
