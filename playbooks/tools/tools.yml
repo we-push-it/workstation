@@ -11,5 +11,7 @@
           - vim
           - curl
           - wget
+          - cowsay
+          - figlet
         state: latest
         update_cache: yes
