@@ -13,5 +13,6 @@
           - wget
           - cowsay
           - figlet
+          - rxvt-unicode
         state: latest
         update_cache: yes
