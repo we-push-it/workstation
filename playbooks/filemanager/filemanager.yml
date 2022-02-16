@@ -1,0 +1,10 @@
+---
+- name: Installing filemanager
+  hosts: localhost
+  tasks:
+    - name: Installing filemanager thunar
+      apt:
+        pkg: 
+          - thunar
+        state: latest
+        update_cache: yes
