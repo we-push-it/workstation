@@ -1,0 +1,10 @@
+---
+- name: Setup Wallpaper
+  hosts: localhost
+  tasks:
+    - name: Installing additional Tools for custom Wallpaper
+      apt:
+        pkg: 
+          - feh
+        state: latest
+        update_cache: yes
