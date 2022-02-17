@@ -1,60 +1,44 @@
 !! zoom Display for 4k -> multiply 96dpi (standard) by 1.5 = 144
 Xft.dpi: 144
 
-!! Colorscheme
-
 ! special
-*.foreground: #93a1a1
-*.background: #141c21
-*.cursorColor: #afbfbf
+*.foreground:   #ab9bab
+*.background:   #1b181b
+*.cursorColor:  #ab9bab
 
 ! black
-*.color0: #263640
-*.color8: #4a697d
+*.color0:       #1b181b
+*.color8:       #776977
 
 ! red
-*.color1: #d12f2c
-*.color9: #fa3935
+*.color1:       #ca402b
+*.color9:       #ca402b
 
 ! green
-*.color2: #819400
-*.color10: #a4bd00
+*.color2:       #379a37
+*.color10:      #379a37
 
 ! yellow
-*.color3: #b08500
-*.color11: #d9a400
+*.color3:       #bb8a35
+*.color11:      #bb8a35
 
 ! blue
-*.color4: #2587cc
-*.color12: #2ca2f5
+*.color4:       #516aec
+*.color12:      #516aec
 
 ! magenta
-*.color5: #696ebf
-*.color13: #8086e8
+*.color5:       #7b59c0
+*.color13:      #7b59c0
 
 ! cyan
-*.color6: #289c93
-*.color14: #33c5ba
+*.color6:       #159393
+*.color14:      #159393
 
 ! white
-*.color7: #bfbaac
-*.color15: #fdf6e3
+*.color7:       #ab9bab
+*.color15:      #f7f3f7
 
-!! URxvt Appearance
-URxvt.font: -*-rissole-*
-URxvt.boldFont: -*-rissole-*
-URxvt.italicFont: -*-rissole-*
-URxvt.boldItalicfont: -*-rissole-*
-URxvt.letterSpace: 0
-URxvt.lineSpace: 0
-URxvt.geometry: 92x24
-URxvt.internalBorder: 24
 URxvt.cursorBlink: true
-URxvt.cursorUnderline: false
-URxvt.saveline: 2048
 URxvt.scrollBar: false
-URxvt.scrollBar_right: false
-URxvt.urgentOnBell: true
-URxvt.depth: 24
-URxvt.iso14755: false
 
+URxvt*font: xft:Monospace:size=15
