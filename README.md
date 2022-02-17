@@ -27,3 +27,7 @@ Login as root via ssh or local and run:
 
     curl https://raw.githubusercontent.com/we-push-it/workstation/master/install.sh | bash
 
+
+# Useful links to understand the configuration
+
+https://wiki.archlinux.org/title/bspwm
