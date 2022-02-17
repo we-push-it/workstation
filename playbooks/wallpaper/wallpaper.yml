@@ -8,3 +8,25 @@
           - feh
         state: latest
         update_cache: yes
+    - name: get user with id 1000 (primary user for debian)
+      shell: >
+        getent passwd 1000 | 
+        awk -F: '{ print $1 }'
+      changed_when: false
+      register: username         
+    - name: Create wallpapers directory
+      file:
+        path: /home/{{ username.stdout }}/wallpapers
+        state: directory
+        owner: '{{ username.stdout }}'
+        group: '{{ username.stdout }}' 
+        mode: 0755
+        recurse: yes
+    - name: copy the wallpapers to remote
+      ansible.builtin.copy:
+        src: ./images/
+        dest: /home/{{ username.stdout }}/wallpapers
+        remote_src: no
+        directory_mode: yes
+        owner: '{{ username.stdout }}'
+        group: '{{ username.stdout }}' 

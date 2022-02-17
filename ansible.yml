@@ -5,4 +5,5 @@
 - import_playbook: playbooks/nvidia/nvidia.yml
 - import_playbook: playbooks/desktop/desktop.yml
 - import_playbook: playbooks/xtuning/xtuning.yml
+- import_playbook: playbooks/wallpaper/wallpaper.yml
 - hosts: localhost
