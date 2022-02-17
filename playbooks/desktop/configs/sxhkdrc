@@ -21,6 +21,10 @@ super + e
 # bspwm hotkeys
 #
 
+# switch workspace
+super + {Left,Right}
+        bspc desktop -f {prev,next}.local
+
 # quit/restart bspwm
 super + alt + {q,r}
         bspc {quit,wm -r}
@@ -123,6 +127,3 @@ super + alt + shift + {h,j,k,l}
 #super + {Left,Down,Up,Right}
 #        bspc node -v {-20 0,0 20,0 -20,20 0}
 
-# switch workspace
-super + {Left,Right}
-        bspc desktop -f {prev,next}.local
