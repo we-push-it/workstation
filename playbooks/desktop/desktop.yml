@@ -32,6 +32,8 @@
         dest: "/home/{{ username.stdout }}/.xinitrc"
         content: |
           exec bspwm
+        owner: '{{ username.stdout }}'
+        group: '{{ username.stdout }}'  
         
     - name: Changing perm of .xinitrc, adding "+x"
       file: dest="/home/{{ username.stdout }}/.xinitrc" mode=a+x
