@@ -11,6 +11,8 @@
       register: username   
     - name: Set the scaling options for 4k displays
       template:
-        src: ./.Xresources
+        src: ./configs/.Xresources
         dest: /home/{{ username.stdout }}/.Xresources
+        owner: '{{ username.stdout }}'
+        group: '{{ username.stdout }}'
         remote_src: no
