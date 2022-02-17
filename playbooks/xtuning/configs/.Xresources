@@ -44,6 +44,7 @@ URxvt.iso14755: false
 
 URxvt*font: xft:Monospace:size=15
 
-; background opacity
-URxvt.depth: 32
-URxvt.background: [80]#1b181b
+!! background opacity (native mode)
+URxvt*interhitPixmap: true
+URxvt*transparent: true
+! shading: 0-99 darekns, 101-200 lightens
