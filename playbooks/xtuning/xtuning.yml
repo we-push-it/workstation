@@ -1,0 +1,16 @@
+---
+
+- name: some tunings on x server
+  hosts: localhost
+  tasks:
+    - name: get user with id 1000 (primary user for debian)
+      shell: >
+        getent passwd 1000 | 
+        awk -F: '{ print $1 }'
+      changed_when: false
+      register: username   
+    - name: Set the scaling options for 4k displays
+      template:
+        src: ./.Xresources
+        dest: /home/{{ username.stdout }}/.Xresources
+        remote_src: no

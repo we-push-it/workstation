@@ -1,0 +1,59 @@
+Xft.dpi: 120
+
+# - Wir geben die Farben an, mit denen wir in urxvt arbeiten werden. Sie können die gewünschten Kombinationen vornehmen
+
+!Schwarz
+URxvt.color0: # 000000
+URxvt.color8: # 555753
+!Rot
+URxvt.color1: # 990099
+URxvt.color9: # 8E388E
+!Grün
+URxvt.color2: # 4E9A06
+URxvt.color10: # 699000
+!Gelb
+URxvt.color3: # FFA500
+URxvt.color11: # FFA500
+!Blau
+URxvt.color4: # 3465A4
+URxvt.color12: # 729FCF
+!Magenta
+URxvt.color5: # 75507B
+URxvt.color13: # AD7FA8
+! Cyan
+URxvt.color6: # 06989A
+URxvt.color14: # 34E2E2
+!Weiß
+URxvt.color7: #FFFFFF
+URxvt.color15: #FFFFFF
+
+# - Fensteraussehen
+# | - Wir geben den Titel des Fensters standardmäßig urxvt an
+URxvt.title: Konsole
+# | - Wir fügen ein benutzerdefiniertes Symbol hinzu, das sich in der von uns angegebenen Adresse befinden muss
+URxvt.iconFile: /usr/share/icons/consola.svg
+# | - Wir entfernen die Bildlaufleisten (ich persönlich mag sie nicht)
+URxvt.scrollBar: false
+# | - Wir fügen Transparenz hinzu
+URxvt.Tiefe: 32
+URxvt.background: [80] # 000000
+# | - Wir definieren die Hauptfarbe (Buchstaben)
+URxvt.foreground: # 699000
+# | - Wir definieren die Cursorfarbe
+URxvt.cursorColor: # 699000
+# | - Wir fügen dem Cursor ein Blinken hinzu
+URxvt.cursorBlink: true
+# | - Wir definieren den zu verwendenden Schrifttyp (um eine vollständige Liste der auf Ihrem System verfügbaren Schriftarten zu erhalten, verwenden Sie "fc-list" auf Ihrer Konsole).
+URxvt.font: xft: Terminus: Pixelgröße = 12
+# | - Wenn zwischen den Zeichen eine Trennung besteht, fügen Sie hinzu, wobei -1 die Anzahl der zu verringernden Pixel ist
+URxvt.letterSpace: -1
+# | - Unterstützung für Registerkarten hinzugefügt
+URxvt.perl-ext-commoni: Standard, mit Registerkarten
+# | - Wir definieren die Hintergrundfarbe der Registerkarten
+URxvt.tabbed.tab-bg: # 000000
+# | - Wir definieren die Frontalfarbe der Wimpern
+URxvt.tabbed.tab-fg: # 699000
+# | - Wir definieren die Hintergrundfarbe der Tabulatortrennzeichen
+URxvt.tabbed.tabbar-bg: # 000000
+# | - Wir definieren die vordere Farbe der Tabulatortrennzeichen
+URxvt.tabbed.tabbar-fg: # 4E9A06
