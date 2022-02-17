@@ -40,5 +40,10 @@ Xft.dpi: 144
 
 URxvt.cursorBlink: true
 URxvt.scrollBar: false
+URxvt.iso14755: false
 
 URxvt*font: xft:Monospace:size=15
+
+; background opacity
+URxvt.depth: 32
+URxvt.background: [80]#1b181b
