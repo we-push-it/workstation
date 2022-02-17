@@ -20,3 +20,4 @@ bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 
 feh --bg-center ~/wallpapers/pushit-grey-4k.png
+xsetroot -cursor_name left_ptr &
