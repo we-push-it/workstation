@@ -1,3 +1,5 @@
+! URXvt Config example found here: https://addy-dclxvi.github.io/post/configuring-urxvt/
+
 !! zoom Display for 4k -> multiply 96dpi (standard) by 1.5 = 144
 Xft.dpi: 144
 
