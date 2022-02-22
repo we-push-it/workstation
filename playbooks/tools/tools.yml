@@ -15,5 +15,6 @@
           - figlet
           - rxvt-unicode
           - beep
+          - vlc
         state: latest
         update_cache: yes
