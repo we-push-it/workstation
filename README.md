@@ -31,3 +31,4 @@ Login as root via ssh or local and run:
 # Useful links to understand the configuration
 
 https://wiki.archlinux.org/title/bspwm
+https://linuxconfig.org/setup-bootsplash-on-debian-grub-silent-or-verbose-boot-mode
